@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# Test files  
+test.mjs
+test-moloch.sh
+test-exec-latex.md
+
+# Planning docs
+GETTING_STARTED.md
+PROJECT_PLAN.md
+
+# Temp
+/tmp/
