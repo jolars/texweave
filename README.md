@@ -15,6 +15,7 @@ npm install -g texweave
 ### With config file (recommended)
 
 Create `texweave.yaml`:
+
 ```yaml
 output: docs/implementation
 source: src
@@ -25,6 +26,7 @@ titles:
 ```
 
 Then simply run:
+
 ```bash
 texweave extract
 ```
