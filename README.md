@@ -2,7 +2,8 @@
 
 **Weave modern documentation from LaTeX packages**
 
-A CLI tool for extracting documentation from DTX files and converting them to Markdown with Pandoc.
+A CLI tool for extracting documentation from DTX files and converting them to
+Markdown with Pandoc.
 
 ## Installation
 

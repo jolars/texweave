@@ -1,6 +1,7 @@
 # exec-latex.lua - Executable LaTeX Code Blocks
 
-A Pandoc Lua filter that executes LaTeX code blocks and includes the rendered output as images in your documentation.
+A Pandoc Lua filter that executes LaTeX code blocks and includes the rendered
+output as images in your documentation.
 
 ## Features
 

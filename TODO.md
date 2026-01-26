@@ -10,10 +10,13 @@
 
 ## Phase 3: Additional Filters
 
-- [ ] `describe-option.lua` - Semantic markup for package options (copy from Moloch)
-- [ ] `describe-key.lua` - Semantic markup for configuration keys (copy from Moloch)
+- [ ] `describe-option.lua` - Semantic markup for package options (copy from
+      Moloch)
+- [ ] `describe-key.lua` - Semantic markup for configuration keys (copy from
+      Moloch)
 - [ ] `describe-command.lua` - Semantic markup for LaTeX commands
-- [ ] `metadata.lua` - Extract version/author from `\ProvidesPackage` automatically
+- [ ] `metadata.lua` - Extract version/author from `\ProvidesPackage`
+      automatically
 
 ## Phase 4: Publishing & Promotion
 

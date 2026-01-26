@@ -1,21 +1,16 @@
 {
   pkgs,
-  lib,
-  config,
-  inputs,
   ...
 }:
 
 {
-  # https://devenv.sh/basics/
-  env.GREET = "devenv";
-
   packages = [
     pkgs.git
     pkgs.bashInteractive
+    pkgs.pandoc
+    pkgs.quartoMinimal
   ];
 
-  # https://devenv.sh/languages/
   languages = {
     texlive = {
       enable = true;
@@ -41,37 +36,26 @@
     };
   };
 
-  # https://devenv.sh/processes/
-  # processes.dev.exec = "${lib.getExe pkgs.watchexec} -n -- ls -la";
+  treefmt = {
+    enable = true;
 
-  # https://devenv.sh/services/
-  # services.postgres.enable = true;
+    config.programs = {
+      nixfmt.enable = true;
 
-  # https://devenv.sh/scripts/
-  scripts.hello.exec = ''
-    echo hello from $GREET
-  '';
+      prettier = {
+        enable = true;
 
-  # https://devenv.sh/basics/
-  enterShell = ''
-    hello         # Run scripts directly
-    git --version # Use packages
-  '';
+        settings = {
+          proseWrap = "always";
+        };
+      };
 
-  # https://devenv.sh/tasks/
-  # tasks = {
-  #   "myproj:setup".exec = "mytool build";
-  #   "devenv:enterShell".after = [ "myproj:setup" ];
-  # };
+      stylua.enable = true;
+    };
+  };
 
-  # https://devenv.sh/tests/
-  enterTest = ''
-    echo "Running tests"
-    git --version | grep --color=auto "${pkgs.git.version}"
-  '';
-
-  # https://devenv.sh/git-hooks/
-  # git-hooks.hooks.shellcheck.enable = true;
-
-  # See full reference at https://devenv.sh/reference/options/
+  git-hooks.hooks = {
+    treefmt.enable = true;
+    eslint.enable = true;
+  };
 }
