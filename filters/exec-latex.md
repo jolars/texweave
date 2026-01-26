@@ -43,6 +43,7 @@ Execute a simple LaTeX snippet:
 ````
 
 The filter will:
+
 1. Wrap it in a `standalone` document with TikZ loaded
 2. Compile with `pdflatex`
 3. Convert to PNG at 300 DPI
@@ -140,6 +141,7 @@ _latex_cache/
 ## Error Handling
 
 If compilation fails:
+
 - Error is printed to stderr
 - Code block is returned with `.latex-error` class
 - Wrapped in a callout-error div (if renderer supports it)
@@ -197,6 +199,7 @@ Custom alert color:
 ### "pdflatex not found"
 
 Install TeX Live:
+
 ```bash
 # Ubuntu/Debian
 sudo apt-get install texlive-full
@@ -211,6 +214,7 @@ brew install --cask mactex
 ### "convert not found"
 
 Install ImageMagick:
+
 ```bash
 # Ubuntu/Debian
 sudo apt-get install imagemagick
@@ -242,13 +246,13 @@ exec-latex:
 
 ## Comparison with Quarto
 
-| Feature | Quarto | exec-latex |
-|---------|--------|------------|
-| R/Python | ✅ | ❌ |
-| LaTeX | ❌ | ✅ |
-| Works with plain Pandoc | ❌ | ✅ |
-| Caching | ✅ | ✅ |
-| Multiple engines | ❌ | ✅ |
+| Feature                 | Quarto | exec-latex |
+| ----------------------- | ------ | ---------- |
+| R/Python                | ✅     | ❌         |
+| LaTeX                   | ❌     | ✅         |
+| Works with plain Pandoc | ❌     | ✅         |
+| Caching                 | ✅     | ✅         |
+| Multiple engines        | ❌     | ✅         |
 
 ## License
 

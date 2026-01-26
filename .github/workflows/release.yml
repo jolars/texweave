@@ -1,12 +1,9 @@
 name: Release
-
 on:
   workflow_dispatch:
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
 jobs:
   build-and-test:
     uses: ./.github/workflows/build-and-test.yml
@@ -15,7 +12,6 @@ jobs:
       contents: read
       pages: write
       id-token: write
-
   release:
     name: Release
     needs: build-and-test
@@ -25,14 +21,12 @@ jobs:
       issues: write
       pull-requests: write
       id-token: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
           persist-credentials: false
-
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v6
         with:

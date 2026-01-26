@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises';
+import { readFile } from "fs/promises";
 
 interface ExtractOptions {
   skipUntilPackage?: boolean;
@@ -10,15 +10,15 @@ interface ExtractOptions {
  */
 export async function extractDTX(
   filePath: string,
-  options: ExtractOptions = {}
+  options: ExtractOptions = {},
 ): Promise<string> {
-  const content = await readFile(filePath, 'utf-8');
-  const lines = content.split('\n');
-  
+  const content = await readFile(filePath, "utf-8");
+  const lines = content.split("\n");
+
   let skipUntilPackage = options.skipUntilPackage ?? true;
   let inMacrocode = false;
   let inMacroEnv = false;
-  
+
   const output: string[] = [];
   const codeLines: string[] = [];
 
@@ -54,7 +54,7 @@ export async function extractDTX(
       const macroName = line.match(/^% \\begin\{macro\}\{(.*?)\}/)?.[1];
       if (macroName) {
         // Escape backslashes for LaTeX
-        const escapedName = macroName.replace(/\\/g, '\\textbackslash{}');
+        const escapedName = macroName.replace(/\\/g, "\\textbackslash{}");
         output.push(`\n\\subsubsection{\\texttt{${escapedName}}}\n`);
       }
       continue;
@@ -66,34 +66,34 @@ export async function extractDTX(
     }
 
     // Handle macrocode blocks
-    if (line.includes('\\begin{macrocode}')) {
+    if (line.includes("\\begin{macrocode}")) {
       inMacrocode = true;
-      output.push('\n\\begin{verbatim}\n');
+      output.push("\n\\begin{verbatim}\n");
       continue;
     }
 
-    if (line.includes('\\end{macrocode}')) {
+    if (line.includes("\\end{macrocode}")) {
       inMacrocode = false;
       for (const codeLine of codeLines) {
-        output.push(codeLine + '\n');
+        output.push(codeLine + "\n");
       }
-      output.push('\\end{verbatim}\n\n');
+      output.push("\\end{verbatim}\n\n");
       codeLines.length = 0;
       continue;
     }
 
     if (inMacrocode) {
       // Remove leading "%    " from code lines
-      const code = line.replace(/^%    /, '');
+      const code = line.replace(/^%    /, "");
       codeLines.push(code);
     } else if (line.match(/^% /) || line.match(/^%$/)) {
       // Documentation line - remove leading "% " or "%"
-      const doc = line.replace(/^% ?/, '');
-      output.push(doc + '\n');
+      const doc = line.replace(/^% ?/, "");
+      output.push(doc + "\n");
     }
   }
 
-  return output.join('');
+  return output.join("");
 }
 
 /**

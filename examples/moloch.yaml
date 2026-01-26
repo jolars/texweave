@@ -1,17 +1,12 @@
 # texweave.yaml - Configuration for Moloch Beamer theme documentation
-
 # Output directory for generated markdown files
 output: /tmp/test-moloch-config
-
 # Source directory containing DTX files
 source: ../moloch/src
-
 # GitHub repository URL for source file links
 sourceRepo: https://github.com/jolars/moloch
-
 # Pandoc Lua filter to apply during conversion
 filter: filters/code-classes.lua
-
 # Custom titles for each DTX file (basename without .dtx extension)
 titles:
   beamerthememoloch: "Main Theme"
