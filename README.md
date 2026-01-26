@@ -21,7 +21,7 @@ Create `texweave.yaml`:
 output: docs/implementation
 source: src
 sourceRepo: https://github.com/yourusername/your-package
-filter: filters/code-classes.lua
+filter: ./my-custom-filter.lua # optional - code-classes.lua is always applied
 titles:
   yourpackage: "Your Package Title"
 ```
@@ -38,8 +38,8 @@ texweave extract
 # Extract documentation from DTX files
 texweave extract src/*.dtx -o docs/implementation
 
-# With custom Pandoc filter
-texweave extract src/*.dtx -f ./my-filter.lua
+# With additional Pandoc filter (code-classes.lua is always applied)
+texweave extract src/*.dtx -f ./my-custom-filter.lua
 
 # With source repo links
 texweave extract src/*.dtx -r https://github.com/user/repo
@@ -62,8 +62,10 @@ texweave extract src/*.dtx
 
 - **DTX extraction**: Parses `.dtx` files and extracts documentation sections
 - **Pandoc integration**: Converts LaTeX to Markdown with optional Lua filters
-- **Code highlighting**: Automatically adds `latex` class to code blocks
+- **Code highlighting**: Automatically adds `latex` class to all code blocks
 - **Frontmatter**: Adds YAML frontmatter to output files
+- **Bundled filters**: `code-classes.lua` is always applied; add custom filters
+  as needed
 
 ## How It Works
 

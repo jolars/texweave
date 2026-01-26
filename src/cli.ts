@@ -17,7 +17,7 @@ program
   .argument("[files...]", "DTX files to process (defaults to src/*.dtx)")
   .option("-c, --config <file>", "Config file path", "texweave.yaml")
   .option("-o, --output <dir>", "Output directory")
-  .option("-f, --filter <file>", "Pandoc Lua filter to apply")
+  .option("-f, --filter <file>", "Additional Pandoc Lua filter to apply")
   .option("-r, --source-repo <url>", "GitHub repo URL for source links")
   .option("-d, --source-dir <dir>", "Source directory name")
   .option("-t, --titles <json>", "JSON object mapping filenames to titles")
