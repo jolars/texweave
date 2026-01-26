@@ -43,7 +43,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
+    "@types/node": "^25.0.10",
     "@vitest/coverage-v8": "^4.0.18",
     "prettier": "^3.2.4",
     "typescript": "^5.3.3",
