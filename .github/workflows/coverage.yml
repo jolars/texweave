@@ -28,7 +28,7 @@ jobs:
       - name: Generate coverage
         run: pnpm test -- --coverage
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: jolars/texweave
